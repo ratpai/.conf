@@ -1,0 +1,20 @@
+"refrences: 
+"https://github.com/tridactyl/tridactyl/blob/master/.tridactylrc
+"https://gitlab.com/Seirdy/dotfiles/-/blob/master/.config/tridactyl/tridactylrc?ref_type=heads
+
+set theme shydactyl
+
+unbind --mode=ex <C-a>
+unbind --mode=ex <C-c>
+
+bind gd tabdetach
+bind gD composite tabduplicate | tabdetach
+bind D tabduplicate
+
+set searchurls.a https://abadis.ir/entofa/%s
+set searchurls.x https://www.oxfordlearnersdictionaries.com/us/definition/english/%s
+set searchurls.g https://www.google.com/search?q=
+set searchurls.dd https://duckduckgo.com/?q=
+set searchurls.yt https://www.youtube.com/results?search_query=
+set searchurls.ct https://chatgpt.com/?temporary-chat=true
+set searchurls.e https://www.etymonline.com/word/%s
