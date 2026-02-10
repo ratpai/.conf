@@ -1,6 +1,7 @@
-"refrences: 
-"https://github.com/tridactyl/tridactyl/blob/master/.tridactylrc
-"https://gitlab.com/Seirdy/dotfiles/-/blob/master/.config/tridactyl/tridactylrc?ref_type=heads
+" "credits
+" "https://github.com/tridactyl/tridactyl/blob/master/.tridactylrc
+" "https://gitlab.com/Seirdy/dotfiles/-/blob/master/.config/tridactyl/tridactylrc?ref_type=heads
+" "https://github.com/TLATER/tridactyl-youtube-mode
 
 set theme shydactyl
 
@@ -11,10 +12,21 @@ bind gd tabdetach
 bind gD composite tabduplicate | tabdetach
 bind D tabduplicate
 
-set searchurls.a https://abadis.ir/entofa/%s
 set searchurls.x https://www.oxfordlearnersdictionaries.com/us/definition/english/%s
 set searchurls.g https://www.google.com/search?q=
 set searchurls.dd https://duckduckgo.com/?q=
 set searchurls.yt https://www.youtube.com/results?search_query=
 set searchurls.ct https://chatgpt.com/?temporary-chat=true
 set searchurls.e https://www.etymonline.com/word/%s
+set searchurls.a https://abadis.ir/entofa/%s
+
+
+" "youtube-mode
+autocmd DocStart .*youtube.*/watch.* composite js -r lib/youtube-functions.js; mode youtube-mode
+
+bind --mode=youtube-mode <Esc> mode normal
+bind --mode=youtube-mode k js tri.youtube_mode.togglePause()
+bind --mode=youtube-mode m js tri.youtube_mode.toggleMute()
+bind --mode=youtube-mode j js tri.youtube_mode.seek(-5)
+bind --mode=youtube-mode l js tri.youtube_mode.seek(5)
+bind --mode=youtube-mode f js tri.youtube_mode.toggleFullScreen()
