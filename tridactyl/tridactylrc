@@ -3,7 +3,7 @@
 " "https://gitlab.com/Seirdy/dotfiles/-/blob/master/.config/tridactyl/tridactylrc?ref_type=heads
 " "https://github.com/TLATER/tridactyl-youtube-mode
 
-set theme shydactyl
+:colors --url https://raw.githubusercontent.com/devnullvoid/tridactyl/refs/heads/main/themes/catppuccin-macchiato.css
 
 unbind --mode=ex <C-a>
 unbind --mode=ex <C-c>
@@ -11,15 +11,35 @@ unbind --mode=ex <C-c>
 bind gd tabdetach
 bind gD composite tabduplicate | tabdetach
 bind D tabduplicate
+bind gW winmerge 
+
+bind F hint -t
 
 set searchurls.x https://www.oxfordlearnersdictionaries.com/us/definition/english/%s
-set searchurls.g https://www.google.com/search?q=
+set searchurls.g  https://www.google.com/search?q=
 set searchurls.dd https://duckduckgo.com/?q=
 set searchurls.yt https://www.youtube.com/results?search_query=
 set searchurls.ct https://chatgpt.com/?temporary-chat=true
-set searchurls.e https://www.etymonline.com/word/%s
-set searchurls.a https://abadis.ir/entofa/%s
+set searchurls.e  https://www.etymonline.com/word/%s
+set searchurls.a  https://abadis.ir/entofa/%s
+set searchurls.cc https://www.dict.cc/?s=%s
+set searchurls.in https://sentence.yourdictionary.com/%s
+set searchurls.t  https://www.thesaurus.com/browse/%s
+set searchurls.d  https://www.google.com/search?q=define%3A+%s
+set searchurls.im https://www.google.com/search?q=%s&tbs=imgo:1&udm=2
 
+bindurl news\.ycombinator\.com/news ;f hint -Jc .age > a
+bindurl news\.ycombinator\.com/news ;F hint -Jbc .age > a
+bindurl news\.ycombinator\.com/item ;f hint -Jc .comment .commtext a
+bindurl news\.ycombinator\.com/item ;F hint -Jbc .comment .commtext a
+
+bindurl reddit\.com gu urlparent 4
+bindurl news\.ycombinator\.com/item gu urlparent 2
+
+bindurl x\.com ;f hint -Jc article
+bindurl x\.com ;F hint -Jbc article
+bindurl x\.com l forward
+bindurl x\.com h back 
 
 " "youtube-mode
 autocmd DocStart .*youtube.*/watch.* composite js -r lib/youtube-functions.js; mode youtube-mode
